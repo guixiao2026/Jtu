@@ -42,7 +42,7 @@ impl AppTray {
 
         let tray = TrayIconBuilder::new()
             .with_menu(Box::new(menu))
-            .with_tooltip("SnapVault")
+            .with_tooltip("Jtu")
             .with_icon(icon)
             .build()
             .map_err(|e| {
@@ -55,6 +55,14 @@ impl AppTray {
             settings_id,
             quit_id,
         })
+    }
+
+    pub fn quit_id(&self) -> &MenuId {
+        &self.quit_id
+    }
+
+    pub fn capture_id(&self) -> &MenuId {
+        &self.capture_id
     }
 
     pub fn poll_event(&self) -> TrayEvent {

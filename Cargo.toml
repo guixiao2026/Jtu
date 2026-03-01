@@ -6,16 +6,11 @@ license = "MIT"
 description = "Cross-platform screenshot & clipboard manager"
 
 [dependencies]
-eframe = { version = "0.31", default-features = true }
-egui = "0.31"
-egui_extras = { version = "0.31", features = ["image"] }
 xcap = "0.8"
 arboard = "3.6"
 global-hotkey = "0.7"
 tray-icon = "0.21"
 image = { version = "0.25", features = ["png"] }
-rusqlite = { version = "0.32", features = ["bundled"] }
-tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
 rfd = "0.15"
 log = "0.4"
 env_logger = "0.11"
@@ -26,6 +21,7 @@ windows-sys = { version = "0.61", features = [
     "Win32_Graphics_Gdi",
     "Win32_Graphics_Dwm",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_System_LibraryLoader",
 ] }
 windows = { version = "0.61", features = [
     "Win32_Graphics_Dxgi",
