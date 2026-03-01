@@ -1,0 +1,45 @@
+[package]
+name = "snapvault"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Cross-platform screenshot & clipboard manager"
+
+[dependencies]
+eframe = { version = "0.31", default-features = true }
+egui = "0.31"
+egui_extras = { version = "0.31", features = ["image"] }
+xcap = "0.8"
+arboard = "3.6"
+global-hotkey = "0.7"
+tray-icon = "0.21"
+image = { version = "0.25", features = ["png"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+rfd = "0.15"
+log = "0.4"
+env_logger = "0.11"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = [
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_Graphics_Gdi",
+    "Win32_Graphics_Dwm",
+    "Win32_UI_WindowsAndMessaging",
+] }
+windows = { version = "0.61", features = [
+    "Win32_Graphics_Dxgi",
+    "Win32_Graphics_Dxgi_Common",
+    "Win32_Graphics_Direct3D",
+    "Win32_Graphics_Direct3D11",
+] }
+
+[[bin]]
+name = "latency-bench"
+path = "src/bin/latency_bench.rs"
+
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
