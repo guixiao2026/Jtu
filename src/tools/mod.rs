@@ -1,7 +1,6 @@
 pub mod arrow;
 pub mod blur;
 pub mod ellipse;
-pub mod eraser;
 pub mod pen;
 pub mod rect;
 pub mod text;
